@@ -55,17 +55,17 @@ jobs:
 
       - name: Restore Dependencies
         if: env.skip == 'false'
-        run: dotnet restore
+        run: dotnet restore **/*.csproj
 
       - name: Run Roslyn Code Analysis
         if: env.skip == 'false'
         run: |
-          dotnet build --no-restore /warnaserror /p:TreatWarningsAsErrors=true /p:EnableNETAnalyzers=true || exit 1
+          dotnet build --no-restore **/*.csproj /warnaserror /p:TreatWarningsAsErrors=true /p:EnableNETAnalyzers=true || exit 1
 
       - name: Verify Formatting (Optional)
         if: env.skip == 'false'
         run: |
-          dotnet format --verify-no-changes || (echo "❌ Code formatting issues detected. Please fix them before merging." && exit 1)
+          dotnet format **/*.csproj --verify-no-changes || (echo "❌ Code formatting issues detected. Please fix them before merging." && exit 1)
 
       - name: Upload Roslyn Analysis Results
         if: env.skip == 'false'
