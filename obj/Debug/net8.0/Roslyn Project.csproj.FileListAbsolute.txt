@@ -1,0 +1,36 @@
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\appsettings.Development.json
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\appsettings.json
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Roslyn Project.staticwebassets.endpoints.json
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Roslyn Project.exe
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Roslyn Project.deps.json
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Roslyn Project.runtimeconfig.json
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Roslyn Project.dll
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Roslyn Project.pdb
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Roslyn Project\Roslyn Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.csproj.AssemblyReference.cache
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.AssemblyInfoInputs.cache
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.AssemblyInfo.cs
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.csproj.CoreCompileInputs.cache
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.MvcApplicationPartsAssemblyInfo.cs
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.MvcApplicationPartsAssemblyInfo.cache
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\scopedcss\bundle\Roslyn Project.styles.css
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.build.json
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.development.json
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.Roslyn Project.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.Roslyn Project.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.build.Roslyn Project.props
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Roslyn Project.props
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Roslyn Project.props
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn P.46D83138.Up2Date
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.dll
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\refint\Roslyn Project.dll
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.pdb
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.genruntimeconfig.cache
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\ref\Roslyn Project.dll

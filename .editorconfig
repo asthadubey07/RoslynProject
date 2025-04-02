@@ -1,0 +1,25 @@
+# Global settings for all languages
+[*.cs]
+dotnet_analyzer_diagnostic.severity = warning  # Enable analyzers
+dotnet_diagnostic.CS8600.severity = error  # Converting null to non-nullable type
+dotnet_diagnostic.CS8602.severity = error  # Dereference of a possible null reference
+dotnet_diagnostic.CS8603.severity = error  # Possible null reference return
+dotnet_diagnostic.CS8618.severity = error  # Non-nullable field is uninitialized
+dotnet_diagnostic.CS8625.severity = error  # Cannot convert null to non-nullable reference type
+
+dotnet_diagnostic.CS0219.severity = warning   # Unused variable
+dotnet_diagnostic.CS0168.severity = warning   # Declared but never used
+dotnet_diagnostic.CS0649.severity = warning   # Unassigned private field
+dotnet_diagnostic.IDE0051.severity = warning  # Unused private member (method, property, field)
+dotnet_diagnostic.IDE0052.severity = warning  # Unused private field
+dotnet_diagnostic.IDE0079.severity = warning  # Unnecessary suppression
+dotnet_diagnostic.RECS0022.severity = warning # Empty catch block
+
+# Enforce best practices
+dotnet_diagnostic.IDE0055.severity = warning  # Formatting rules
+dotnet_diagnostic.IDE0060.severity = warning  # Unused parameters
+dotnet_diagnostic.IDE0079.severity = error  # Unnecessary suppression
+dotnet_diagnostic.IDE0044.severity = warning  # Make field readonly when possible
+
+# Treat all warnings as errors
+#dotnet_analyzer_diagnostic.severity = error

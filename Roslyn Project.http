@@ -1,0 +1,6 @@
+@Roslyn_Project_HostAddress = http://localhost:5001
+
+GET {{Roslyn_Project_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
