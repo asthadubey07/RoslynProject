@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full commit history is fetched
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -28,18 +30,22 @@ jobs:
           else
             echo "Changed files: $CHANGED_FILES"
             echo "skip=false" >> $GITHUB_ENV
+            echo "$CHANGED_FILES" > changed_files.txt  # Save to a file for later use
           fi
 
       - name: Restore Dependencies
         if: env.skip == 'false'
         run: dotnet restore
 
-      - name: Run Roslyn Code Analysis on Changed Files
+      - name: Run Roslyn Code Analysis
         if: env.skip == 'false'
         run: |
-          for file in $CHANGED_FILES; do
-            dotnet build "$file" --no-restore /warnaserror /p:TreatWarningsAsErrors=true /p:EnableNETAnalyzers=true || exit 1
-          done
+          dotnet build --no-restore /warnaserror /p:TreatWarningsAsErrors=true /p:EnableNETAnalyzers=true || exit 1
+
+      - name: Verify Formatting (Optional)
+        if: env.skip == 'false'
+        run: |
+          dotnet format --verify-no-changes || (echo "❌ Code formatting issues detected. Please fix them before merging." && exit 1)
 
       - name: Upload Roslyn Analysis Results
         if: env.skip == 'false'
