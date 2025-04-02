@@ -34,3 +34,4 @@ C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\refint\Roslyn Project.dll
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.pdb
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.genruntimeconfig.cache
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\ref\Roslyn Project.dll
+C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.sourcelink.json
