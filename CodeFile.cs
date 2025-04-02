@@ -1,4 +1,4 @@
-﻿namespace Roslyn_Project
+﻿ namespace RoslynProject
 {
     public class MathOperations
     {
