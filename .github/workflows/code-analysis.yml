@@ -1,0 +1,55 @@
+name: Code Analysis
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Find Changed C# Files
+        id: changed-files
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} -- '*.cs')
+          if [[ -z "$CHANGED_FILES" ]]; then
+            echo "No C# files changed. Skipping analysis."
+            echo "skip=true" >> $GITHUB_ENV
+          else
+            echo "Changed files: $CHANGED_FILES"
+            echo "skip=false" >> $GITHUB_ENV
+          fi
+
+      - name: Restore Dependencies
+        if: env.skip == 'false'
+        run: dotnet restore
+
+      - name: Run Roslyn Code Analysis on Changed Files
+        if: env.skip == 'false'
+        run: |
+          for file in $CHANGED_FILES; do
+            dotnet build "$file" --no-restore /warnaserror /p:TreatWarningsAsErrors=true /p:EnableNETAnalyzers=true || exit 1
+          done
+
+      - name: Upload Roslyn Analysis Results
+        if: env.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Roslyn-Analysis-Results
+          path: |
+            **/bin/**/*.dll
+            **/bin/**/*.pdb
+
+      - name: Report Analysis Results
+        if: failure()
+        run: echo "❌ Roslyn Code Analysis failed on modified files. Please fix the issues before merging."
