@@ -1,0 +1,81 @@
+name: Code Analysis
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history to ensure base commit exists
+
+      - name: Fetch Full History If Needed
+        run: |
+          git fetch --prune origin main || true
+
+      - name: Debug SHA Values
+        run: |
+          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
+          echo "Head SHA: ${{ github.sha }}"
+          git log --oneline -n 5  # Show recent commits
+
+      - name: Find Changed C# Files
+        id: changed-files
+        run: |
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.sha }}"
+
+          # If BASE_SHA is empty, use origin/main as fallback
+          if [ -z "$BASE_SHA" ]; then
+            BASE_SHA=$(git merge-base origin/main $HEAD_SHA)
+          fi
+
+          echo "Using base SHA: $BASE_SHA"
+          CHANGED_FILES=$(git diff --name-only $BASE_SHA $HEAD_SHA -- '*.cs')
+
+          if [[ -z "$CHANGED_FILES" ]]; then
+            echo "No C# files changed. Skipping analysis."
+            echo "skip=true" >> $GITHUB_ENV
+          else
+            echo "Changed files: $CHANGED_FILES"
+            echo "skip=false" >> $GITHUB_ENV
+            echo "$CHANGED_FILES" > changed_files.txt  # Save for later use
+          fi
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore Dependencies
+        if: env.skip == 'false'
+        run: dotnet restore "Roslyn Project/Roslyn Project.csproj"
+
+      - name: Run Roslyn Code Analysis
+        if: env.skip == 'false'
+        run: |
+          dotnet build --no-restore "Roslyn Project/Roslyn Project.csproj" /warnaserror /p:TreatWarningsAsErrors=true /p:EnableNETAnalyzers=true || exit 1
+
+      - name: Verify Formatting (Optional)
+        if: env.skip == 'false'
+        run: |
+          dotnet format "Roslyn Project/Roslyn Project.csproj" --verify-no-changes || (echo "❌ Code formatting issues detected. Please fix them before merging." && exit 1)
+
+      - name: Upload Roslyn Analysis Results
+        if: env.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Roslyn-Analysis-Results
+          path: |
+            **/bin/**/*.dll
+            **/bin/**/*.pdb
+
+      - name: Report Analysis Results
+        if: failure()
+        run: echo "❌ Roslyn Code Analysis failed on modified files. Please fix the issues before merging."

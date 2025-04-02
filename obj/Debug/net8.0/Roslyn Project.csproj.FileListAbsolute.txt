@@ -27,7 +27,6 @@ C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.build.
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Roslyn Project.props
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Roslyn Project.props
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn P.46D83138.Up2Date
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\Roslyn Project.dll
 C:\Roslyn Project\Roslyn Project\obj\Debug\net8.0\refint\Roslyn Project.dll
